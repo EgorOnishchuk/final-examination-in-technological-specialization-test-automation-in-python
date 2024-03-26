@@ -34,11 +34,14 @@ class Test:
 
     def test_about(self, browser) -> None:
         """
-        Проверяет возможность открытия и верстку страницы описания.
+        Проверяет возможность открытия и вёрстку страницы описания.
         :param browser: Программно-управляемый браузер.
         """
         info(f'Тестирование {Test.TESTS_NAMES[1]} начато')
-        assert PostsPage(browser).get_about_layout() == '32px'
+        posts_page = PostsPage(browser)
+        posts_page.open()
+        posts_page.authorize()
+        assert posts_page.get_about_layout() == '64px'
         info(f'Тестирование {Test.TESTS_NAMES[1]} завершено')
 
     def test_vulnerabilities(self) -> None:
@@ -46,5 +49,5 @@ class Test:
         Проверяет наличие уязвимостей сайта.
         """
         info(f'Тестирование {Test.TESTS_NAMES[2]} начато')
-        assert CommandLineInterface('nikto').is_text_in_output('0 error(s)', f'-h {configuration["base_url"]} -ssl '
-                                                               '-Tuning 4')
+        assert CommandLineInterface('nikto').is_text_in_output('0 error(s)', f'-h {configuration["base_page_url"]} '
+                                                               '-ssl -Tuning 4')

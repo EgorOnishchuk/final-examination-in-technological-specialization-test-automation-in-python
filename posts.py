@@ -13,7 +13,7 @@ class PostsPage(BasePage):
     """
     def get_about_layout(self) -> str | None:
         """
-        Проверяет верстку страницы описания.
+        Проверяет вёрстку страницы описания.
         :return: Размер шрифта заголовка описания.
         """
         try:
