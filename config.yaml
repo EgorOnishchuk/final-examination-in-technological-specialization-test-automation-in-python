@@ -1,0 +1,7 @@
+base_api_url: https://test-stand.gb.ru/gateway/login
+profile_api_url: https://test-stand.gb.ru/api/users/profile/26290
+base_page_url: http://test-stand.gb.ru
+user_name: PetrPetrovQA
+user_password: 02fa8e6ea2
+implicit_delay: 10
+visual_delay: 3
